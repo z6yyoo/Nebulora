@@ -193,7 +193,7 @@ export default function InstancedStars({ stars, allStars, selectedStar, onSelect
                   {formatProbability(tooltipStar.market.outcomes[0]?.price || 0.5)}
                 </span>
                 <span className="text-white/50">
-                  {formatVolume(tooltipStar.market.volume24h)}
+                  {formatVolume(tooltipStar.market.volume24h, tooltipStar.market.collateralAsset)}
                 </span>
               </div>
             </div>

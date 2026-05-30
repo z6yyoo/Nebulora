@@ -108,7 +108,7 @@ export default function MarketStar({ star, onClick, isSelected, globalTime }: Ma
                 {formatProbability(prob)}
               </span>
               <span className="text-white/50">
-                {formatVolume(star.market.volume24h)}
+                {formatVolume(star.market.volume24h, star.market.collateralAsset)}
               </span>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Market, StarData, PLATFORM_COLORS } from './types'
+import { Market, StarData, PLATFORM_COLORS, CollateralAsset } from './types'
 
 // Convert market data to 3D star positioning
 export function marketsToStars(markets: Market[]): StarData[] {
@@ -64,10 +64,13 @@ export function formatProbability(price: number): string {
   return `${Math.round(price * 100)}%`
 }
 
-export function formatVolume(vol: number): string {
-  if (vol >= 1_000_000) return `$${(vol / 1_000_000).toFixed(1)}M`
-  if (vol >= 1_000) return `$${(vol / 1_000).toFixed(0)}K`
-  return `$${vol.toFixed(0)}`
+export function formatVolume(vol: number, collateralAsset?: CollateralAsset): string {
+  const suffix = collateralAsset ? ` ${collateralAsset}` : ''
+  const prefix = collateralAsset ? '' : '$'
+
+  if (vol >= 1_000_000) return `${prefix}${(vol / 1_000_000).toFixed(1)}M${suffix}`
+  if (vol >= 1_000) return `${prefix}${(vol / 1_000).toFixed(0)}K${suffix}`
+  return `${prefix}${vol.toFixed(0)}${suffix}`
 }
 
 export function getPlatformLabel(platform: string): string {

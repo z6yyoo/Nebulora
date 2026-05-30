@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { POLYMARKET_COLLATERAL_ASSET } from '@/lib/polymarket-config'
 import { Market, Platform } from '@/lib/types'
 
 const MAX_REASONABLE_SPREAD = 0.5
@@ -101,6 +102,7 @@ async function fetchPolymarketViaProxy(limit: number, offset: number): Promise<M
       outcomes,
       volume: event.volume || 0,
       volume24h: event.volume24hr || 0,
+      collateralAsset: POLYMARKET_COLLATERAL_ASSET,
       liquidity: event.liquidity || 0,
       status: 'active',
       createdAt: event.startDate,

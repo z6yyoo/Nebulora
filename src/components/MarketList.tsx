@@ -66,7 +66,7 @@ export default function MarketList({ stars, selectedStar, onSelect }: MarketList
                     {star.market.title}
                   </div>
                   <div className="text-[9px] text-white/30">
-                    {getPlatformLabel(star.market.platform)} • {formatVolume(star.market.volume24h)} 24h
+                    {getPlatformLabel(star.market.platform)} • {formatVolume(star.market.volume24h, star.market.collateralAsset)} 24h
                   </div>
                 </div>
 

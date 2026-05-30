@@ -95,16 +95,16 @@ export default function DetailPanel({ star, onClose }: DetailPanelProps) {
         <div className="grid grid-cols-2 gap-2 mb-4">
           <div className="glass-panel-sm p-2">
             <div className="text-[10px] text-white/40">24h Volume</div>
-            <div className="text-sm font-mono text-white/80">{formatVolume(market.volume24h)}</div>
+            <div className="text-sm font-mono text-white/80">{formatVolume(market.volume24h, market.collateralAsset)}</div>
           </div>
           <div className="glass-panel-sm p-2">
             <div className="text-[10px] text-white/40">Total Volume</div>
-            <div className="text-sm font-mono text-white/80">{formatVolume(market.volume)}</div>
+            <div className="text-sm font-mono text-white/80">{formatVolume(market.volume, market.collateralAsset)}</div>
           </div>
           {market.liquidity != null && market.liquidity > 0 && (
             <div className="glass-panel-sm p-2">
               <div className="text-[10px] text-white/40">Liquidity</div>
-              <div className="text-sm font-mono text-white/80">{formatVolume(market.liquidity)}</div>
+              <div className="text-sm font-mono text-white/80">{formatVolume(market.liquidity, market.collateralAsset)}</div>
             </div>
           )}
           {market.endDate && (
